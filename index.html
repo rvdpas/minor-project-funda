@@ -55,7 +55,10 @@
             <input type="submit" id="submit" value="Search" />
             <ul id="auto-suggest" class="hide"></ul>
         </form>
-        <p id="feedback"></p>
+        <p id="search-input"></p>
+        <p id="search-minimum"></p>
+        <p id="search-maximum"></p>
+        <p id="search-rooms"></p>
     </section>
 
     <main>
@@ -80,18 +83,14 @@
         {{#each data}}
             <article class="item">
                 <img src="{{FotoLarge}}" />
-                <h1>Adres: {{Adres}}</h1>
-                <p>Postcode: {{Postcode}} Plaats: {{Woonplaats}}</p>
-                <p>Aantal kamers: {{AantalKamers}}</p>
-                <p>Prijs: {{{PrijsGeformatteerdHtml}}}</p>
-                <p>Soort huis: {{Soort-aanbod}}</p>
+                <p><span>Adres:</span> {{Adres}}</p>
+                <p><span>Postcode:</span> {{Postcode}} Plaats: {{Woonplaats}}</p>
+                <p><span>Aantal kamers:</span> {{AantalKamers}}</p>
+                <p class="price">{{{PrijsGeformatteerdHtml}}}</p>
+                <p><span>Soort huis:</span> {{Soort-aanbod}}</p>
             </article>
         {{/each}}
     </section>
-</script>
-
-<script id="detail-template" type="text/x-handlebars-template">
-
 </script>
 
 <script src="js/config.js"></script>

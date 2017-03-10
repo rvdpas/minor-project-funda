@@ -1,10 +1,15 @@
 /* Default styles */
-
 html, body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   height: 100%;
+  font-size: 16px;
+  color: #333;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 img, object, video, iframe {
@@ -16,14 +21,8 @@ header, section, footer, aside, nav, main, article, figure {
 }
 
 /* custom styles */
-
-html, body {
-  font-size: 16px;
-  color: #333;
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+body {
+  background: #e7f1f5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,10 +49,7 @@ a {
   text-decoration: none;
 }
 
-body {
-  background: #e7f1f5;
-}
-
+/* Top */
 .top {
   background: #F7A100;
 }
@@ -74,6 +70,7 @@ body {
   display: block;
 }
 
+/* Search bar */
 #search {
   display: flex;
   flex-direction: row;
@@ -88,7 +85,7 @@ body {
   border: 3px solid #F7A100;
   padding: 0.5em;
   font-size: 1.4em;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   height: 2em;
   margin-right: 2%;
   position: relative;
@@ -117,21 +114,6 @@ body {
   opacity: 0.8;
 }
 
-.hide {
-  display: none;
-}
-
-.item {
-  width: 24%;
-}
-
-main section {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .search ul {
   background: #fff;
   position: absolute;
@@ -157,8 +139,39 @@ main section {
   color: #fff;
 }
 
-.show {
-  display: block;
+/* Main content */
+main section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item {
+  width: 24%;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.item .price {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 53%;
+  background: #f7a100;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.item p span {
+  font-weight: 700;
+  font-family: 'Raleway', sans-serif;
+}
+
+.item .price abbr {
+  display: none;
 }
 
 /* loading icon */
@@ -205,6 +218,7 @@ main section {
   }
 }
 
+/* Filters */
 .filters .label  {
   display: block;
 }
@@ -225,4 +239,13 @@ main section {
 
 .filters label, select {
   margin-right: 1em;
+}
+
+/* toggle classes */
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

@@ -1,22 +1,15 @@
 (function() {
   'use strict';
 
-  // Local variables object
-  var templateHouses = Handlebars.compile(document.getElementById('results-template').innerHTML);
-  var templateDetail = Handlebars.compile(document.getElementById('detail-template').innerHTML);
-  var templateAutoSuggest = Handlebars.compile(document.getElementById('auto-suggest-template').innerHTML);
-  var resultsPlaceholder = document.getElementById('results');
-  var resultsDetail = document.getElementById('results-detail');
   var autoSuggestTemplate = document.getElementById('auto-suggest');
-  var search = document.getElementById('search');
-
+  var minimum = document.getElementById('minimum').value;
+  var maximum = document.getElementById('maximum').value;
+  var aantalKamers = document.getElementById('aantalKamers').value;
   var houses = [];
-  var autoSuggests = [];
 
   // initialize all needed objects
   var app = {
     init : function() {
-      routes.init();
       search.init();
     }
   };
@@ -39,7 +32,7 @@
       xhr.send();
     }
   };
-  
+
   // Retrieves the users input and makes a api request to retrieve the houses from funda.
   var search = {
     init: function () {
@@ -67,6 +60,8 @@
 
     // Gets the users input when he starts typing and makes a request to the autosuggest api.
     onInput: function () {
+      var templateAutoSuggest = Handlebars.compile(document.getElementById('auto-suggest-template').innerHTML);
+      var autoSuggests = [];
       document.getElementById("input").addEventListener("input", function () {
         request.make(config.autoSuggest + input.value + '&max=5&type=koop', function(data) {
           autoSuggests = data;
@@ -91,7 +86,9 @@
       document.querySelector('.loader').classList.remove('hide');
 
       if (input.length > 0) {
-        document.getElementById("feedback").innerHTML = "U heeft gezocht op " + input + ".";
+        document.getElementById("search-input").innerHTML = "U heeft gezocht op " + input + ".";
+        document.getElementById("search-minimum").innerHTML = "U heeft een minimum prijs geselecteerd van: &euro; " + minimum + ".";
+        document.getElementById("search-maximum").innerHTML = "U heeft een maximum prijs geselecteerd van: &euro; " + maximum + ".";
         var results = [];
         search.fetch(1, []);
       }
@@ -126,15 +123,15 @@
           console.log(houses);
 
           this.render();
-        }    
+        }
       }.bind(this));
     },
 
     // Filters to get min and max price + multiple rooms
     render: function() {
-      var aantalKamers = document.getElementById('aantalKamers').value;
-      var minimum = document.getElementById('minimum').value;
-      var maximum = document.getElementById('maximum').value;
+      var resultsDetail = document.getElementById('results-detail');
+      var resultsPlaceholder = document.getElementById('results');
+      var templateHouses = Handlebars.compile(document.getElementById('results-template').innerHTML);
 
       var filteredHouses = houses.filter(function(house) {
         if (aantalKamers && house.AantalKamers != aantalKamers) {
@@ -151,20 +148,8 @@
       resultsPlaceholder.innerHTML = templateHouses({data: filteredHouses});
       resultsPlaceholder.classList.remove('hide');
       resultsDetail.classList.add('hide');
-      // Shows loader when the data is loading.
       document.querySelector('.loader').classList.add('hide');
     },
-  };
-
-  var routes = {
-    init: function () {
-
-      routie({
-        '': function() {
-          console.log('home')
-        }
-      })
-    }
   };
 
   app.init();
