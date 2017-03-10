@@ -81,6 +81,7 @@
     onSearch: function (e) {
       e.preventDefault();
       var input = document.getElementById('input').value;
+      var aantalKamers = document.getElementById('aantalKamers').value;
       autoSuggestTemplate.classList.add('hide');
 
       document.querySelector('.loader').classList.remove('hide');
@@ -89,6 +90,7 @@
         document.getElementById("search-input").innerHTML = "U heeft gezocht op " + input + ".";
         document.getElementById("search-minimum").innerHTML = "U heeft een minimum prijs geselecteerd van: &euro; " + minimum + ".";
         document.getElementById("search-maximum").innerHTML = "U heeft een maximum prijs geselecteerd van: &euro; " + maximum + ".";
+        document.getElementById("search-rooms").innerHTML = "U heeft  " + aantalKamers + " kamers geselecteerd.";
         var results = [];
         search.fetch(1, []);
       }
