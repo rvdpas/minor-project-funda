@@ -96,7 +96,7 @@ a {
   margin: 3em auto;
   position: relative;
   background: #F7A100;
-  padding: 5em 1em;
+  padding: 2em 1em;
 }
 
 .search input[type="submit"] {
@@ -183,7 +183,7 @@ main section {
 }
 
 .loader {
-  margin: 11em auto;
+  margin: 2em auto;
   font-size: 0.7em;
   position: relative;
   text-indent: -9999em;

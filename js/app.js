@@ -129,9 +129,11 @@
 
     // Filters to get min and max price + multiple rooms
     render: function() {
-      var resultsDetail = document.getElementById('results-detail');
       var resultsPlaceholder = document.getElementById('results');
       var templateHouses = Handlebars.compile(document.getElementById('results-template').innerHTML);
+      var minimum = document.getElementById('minimum').value;
+      var maximum = document.getElementById('maximum').value;
+      var aantalKamers = document.getElementById('aantalKamers').value;
 
       var filteredHouses = houses.filter(function(house) {
         if (aantalKamers && house.AantalKamers != aantalKamers) {
@@ -147,7 +149,6 @@
 
       resultsPlaceholder.innerHTML = templateHouses({data: filteredHouses});
       resultsPlaceholder.classList.remove('hide');
-      resultsDetail.classList.add('hide');
       document.querySelector('.loader').classList.add('hide');
     },
   };
