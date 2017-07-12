@@ -47,11 +47,24 @@
                 </select>
             </label>
             <label class="rooms">Aantal kamers:
-                <input type="text" placeholder="Aantal kamers" id="aantalKamers">
+                 <select id="aantalKamers">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
             </label>
         </div>
         <form id="search" >
-            <input type="text" id="input" value="" class="form-control" autocomplete="off" autofocus="true" placeholder="Type hier de plaats waar u naar wilt zoeken"/>
+            <input type="text" id="input" value="" class="form-control" autocomplete="off" autofocus="true" placeholder="Plaats, buurt, adres"/>
             <input type="submit" id="submit" value="Zoeken" />
             <ul id="auto-suggest" class="hide"></ul>
         </form>
@@ -83,10 +96,10 @@
         {{#each data}}
             <article class="item">
                 <img src="{{FotoLarge}}" />
+                <p class="price">{{{PrijsGeformatteerdHtml}}}</p>
                 <p><span>Adres:</span> {{Adres}}</p>
                 <p><span>Postcode:</span> {{Postcode}} Plaats: {{Woonplaats}}</p>
                 <p><span>Aantal kamers:</span> {{AantalKamers}}</p>
-                <p class="price">{{{PrijsGeformatteerdHtml}}}</p>
                 <p><span>Soort huis:</span> {{Soort-aanbod}}</p>
             </article>
         {{/each}}

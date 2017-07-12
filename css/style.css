@@ -60,9 +60,22 @@ a {
   padding: 0.5em 0;
 }
 
+@media (max-width: 35em) {
+  .top header {
+    width: 100%;
+  }
+}
+
 .top a {
   width: 15%;
   display: block;
+}
+
+@media (max-width: 35em) {
+  .top a {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .top img {
@@ -79,10 +92,22 @@ a {
   position: relative;
 }
 
+@media (max-width: 65em) {
+  #search {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 30em) {
+  #search {
+    flex-direction: column;
+  }
+}
+
 .form-control {
   width: 83%;
   border-radius: 5px;
-  border: 3px solid #F7A100;
+  border: 1px solid #F7A100;
   padding: 0.5em;
   font-size: 1.4em;
   box-sizing: border-box;
@@ -91,12 +116,38 @@ a {
   position: relative;
 }
 
+@media (max-width: 65em) {
+  .form-control {
+    width: 70%;
+  }
+}
+
+@media (max-width: 30em) {
+  .form-control {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
 .search {
   width: 50%;
   margin: 3em auto;
   position: relative;
   background: #F7A100;
   padding: 2em 1em;
+}
+
+@media (max-width: 35em) {
+  .search {
+    margin: 1.5em auto;
+  }
+}
+
+@media (max-width: 65em) {
+  .search {
+    width: auto;
+  }
 }
 
 .search input[type="submit"] {
@@ -109,6 +160,14 @@ a {
   background: #0071B3;
   color: #fff;
 }
+
+@media (max-width: 30em) {
+  .search input[type="submit"] {
+    width: 100%;
+    display: block;
+  }
+}
+
 
 .search input[type="submit"]:hover {
   opacity: 0.8;
@@ -153,17 +212,32 @@ main section {
   margin-bottom: 1em;
 }
 
+@media (max-width: 60em) {
+  .item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 30em) {
+  .item {
+    width: 95%;
+  }
+}
+
 .item .price {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 53%;
   background: #f7a100;
   text-align: center;
-  width: 50%;
   margin: 0 auto;
   color: #fff;
+  width: 100%;
 }
+
+/*@media (max-width: 80em) {
+  .item .price {
+    position: static;
+    width: 100%;
+  }
+}*/
 
 .item p span {
   font-weight: 700;
@@ -235,6 +309,7 @@ main section {
 .filters {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .filters label, select {

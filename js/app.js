@@ -98,7 +98,7 @@
 
     // When the value of a filter changes the results will update to the new search value.
     onFilterChange: function() {
-      document.getElementById('aantalKamers').addEventListener('keyup', function() {
+      document.getElementById('aantalKamers').addEventListener('change', function() {
         this.render();
       }.bind(this));
 
